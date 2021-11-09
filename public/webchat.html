@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>webchat</title>
+  <link rel="stylesheet" href="./css/chat.css">
 </head>
 <body>
-  <form>
+  <div id="users">
+    <h1>Online Users</h1>
+    <ul class="nicknames" id="usersList">
+      <li data-testid="online-user" id="userNickname"></li>
+    </ul>
+  </div>
+
+  <form class="nickname-box">
     <input
       data-testid="nickname-box"
       id="username" 
@@ -15,19 +26,15 @@
     <button data-testid="nickname-button" id="usernameBtn" type="button">Change</button>
   </form>
 
-  <div id="users">
-    <ul id="usersList">
-      <li data-testid="online-user" id="userNickname"></li>
-    </ul>
-  </div>
-
-  <div>
+  <div id="chat">
     <h1>Chat</h1>
-    <ul id="messages" ></ul>
-    <form>
-      <input data-testid="message-box" id="messageInput" autocomplete="off" />
-      <button data-testid="send-button" type="button" id="sendBtn">Send</button>
-    </form>
+    <ul id="messages" class="chat-messages" ></ul>
+    <div class="chat-form">
+      <form class="message-form">
+        <input data-testid="message-box" id="messageInput" autocomplete="off" />
+        <button data-testid="send-button" type="button" id="sendBtn">Send</button>
+      </form>
+    </div>
   </div>
 </body>
 <script src="/socket.io/socket.io.js"></script>
